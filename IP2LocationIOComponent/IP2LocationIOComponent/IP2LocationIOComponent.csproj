@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net472;net48;net481;net5.0;net6.0;net7.0</TargetFrameworks>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>IP2Location.io .NET SDK</Title>
+    <Description>IP2Location.io .NET SDK allows user to query for an enriched data set based on IP address and provides WHOIS lookup api that helps users to obtain domain information.</Description>
+    <Copyright>Copyright 2023 IP2Location.io</Copyright>
+    <PackageProjectUrl>https://github.com/ip2location/ip2location-io-dotnet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ip2location/ip2location-io-dotnet.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>geolocation;ip2location.io</PackageTags>
+    <PackageReleaseNotes>Initial</PackageReleaseNotes>
+    <Version>1.0.0</Version>
+    <Authors>IP2Location.io</Authors>
+    <Company>IP2Location.io</Company>
+    <Product>IP2Location.io .NET SDK</Product>
+    <PackageId>IP2Location.io</PackageId>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>logo-128x128.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="logo-128x128.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

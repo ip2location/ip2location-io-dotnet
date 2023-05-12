@@ -6,9 +6,16 @@ In addition, this module provides WHOIS lookup api that helps users to obtain do
 
 This module requires API key to function. You may sign up for a free API key at https://www.ip2location.io/pricing.
 
+
 Pre-requisite
 =============
 Microsoft Visual Studio 2022 or later.
+
+
+Installation
+============
+https://www.nuget.org/packages/IP2Location.io
+
 
 Usage Example
 =============
@@ -153,6 +160,7 @@ catch (Exception ex)
 
 ```
 
+
 ### Lookup Domain Information
 ```C#
 using Newtonsoft.Json;
@@ -248,6 +256,7 @@ catch (Exception ex)
 }
 ```
 
+
 ### Convert Normal Text to Punycode
 ```C#
 using IP2LocationIOComponent;
@@ -264,6 +273,7 @@ DomainWhois Whois = new(Config);
 string domain = "täst.de";
 Console.WriteLine(Whois.GetPunycode(domain));
 ```
+
 
 ### Convert Punycode to Normal Text
 ```C#
@@ -282,6 +292,7 @@ string domain = "xn--tst-qla.de";
 Console.WriteLine(Whois.GetNormalText(domain));
 ```
 
+
 ### Get Domain Name
 ```C#
 using IP2LocationIOComponent;
@@ -298,6 +309,7 @@ DomainWhois Whois = new(Config);
 string url = "https://www.example.com/exe";
 Console.WriteLine(Whois.GetDomainName(url));
 ```
+
 
 ### Get Domain Extension
 ```C#
@@ -483,6 +495,7 @@ Response Parameter
 	}
 }
 ```
+
 
 ### Domain WHOIS Lookup function
 | Parameter | Type | Description |

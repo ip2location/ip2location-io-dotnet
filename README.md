@@ -404,105 +404,125 @@ Response Parameter
 |proxy.proxy_type|string|Type of proxy.|
 |proxy.threat|string|Security threat reported.|
 |proxy.provider|string|Name of VPN provider if available.|
+|proxy.is_vpn|boolean|Anonymizing VPN services.|
+|proxy.is_tor|boolean|Tor Exit Nodes.|
+|proxy.is_data_center|boolean|Hosting Provider, Data Center or Content Delivery Network.|
+|proxy.is_public_proxy|boolean|Public Proxies.|
+|proxy.is_web_proxy|boolean|Web Proxies.|
+|proxy.is_web_crawler|boolean|Search Engine Robots.|
+|proxy.is_residential_proxy|boolean|Residential proxies.|
+|proxy.is_spammer|boolean|Email and forum spammers.|
+|proxy.is_scanner|boolean|Network security scanners.|
+|proxy.is_botnet|boolean|Malware infected devices.|
 
 ```json
 {
-	"ip": "8.8.8.8",
-	"country_code": "US",
-	"country_name": "United States of America",
-	"region_name": "California",
-	"city_name": "Mountain View",
-	"latitude": 37.405992,
-	"longitude": -122.078515,
-	"zip_code": "94043",
-	"time_zone": "-07:00",
-	"asn": "15169",
-	"as": "Google LLC",
-	"isp": "Google LLC",
-	"domain": "google.com",
-	"net_speed": "T1",
-	"idd_code": "1",
-	"area_code": "650",
-	"weather_station_code": "USCA0746",
-	"weather_station_name": "Mountain View",
-	"mcc": "-",
-	"mnc": "-",
-	"mobile_brand": "-",
-	"elevation": 32,
-	"usage_type": "DCH",
-	"address_type": "Anycast",
-	"continent": {
-		"name": "North America",
-		"code": "NA",
-		"hemisphere": [
-			"north",
-			"west"
-		],
-		"translation": {
-			"lang": "es",
-			"value": "Norteamérica"
-		}
-	},
-	"district": "Santa Clara County",
-	"country": {
-		"name": "United States of America",
-		"alpha3_code": "USA",
-		"numeric_code": 840,
-		"demonym": "Americans",
-		"flag": "https://cdn.ip2location.io/assets/img/flags/us.png",
-		"capital": "Washington, D.C.",
-		"total_area": 9826675,
-		"population": 331002651,
-		"currency": {
-			"code": "USD",
-			"name": "United States Dollar",
-			"symbol": "$"
-		},
-		"language": {
-			"code": "EN",
-			"name": "English"
-		},
-		"tld": "us",
-		"translation": {
-			"lang": "es",
-			"value": "Estados Unidos de América (los)"
-		}
-	},
-	"region": {
-		"name": "California",
-		"code": "US-CA",
-		"translation": {
-			"lang": "es",
-			"value": "California"
-		}
-	},
-	"city": {
-		"name": "Mountain View",
-		"translation": {
-			"lang": null,
-			"value": null
-		}
-	},
-	"time_zone_info": {
-		"olson": "America/Los_Angeles",
-		"current_time": "2023-05-11T10:01:21+08:00",
-		"gmt_offset": -25200,
-		"is_dst": true,
-		"sunrise": "06:02",
-		"sunset": "20:06"
-	},
-	"geotargeting": {
-		"metro": "807"
-	},
-	"ads_category": "IAB19-11",
-	"ads_category_name": "Data Centers",
-	"is_proxy": false,
-	"proxy": {
-		"last_seen": 10,
-		"proxy_type": "DCH",
-		"threat": "-",
-		"provider": "-"
-	}
+  "ip": "8.8.8.8",
+  "country_code": "US",
+  "country_name": "United States of America",
+  "region_name": "California",
+  "city_name": "Mountain View",
+  "latitude": 37.405992,
+  "longitude": -122.078515,
+  "zip_code": "94043",
+  "time_zone": "-07:00",
+  "asn": "15169",
+  "as": "Google LLC",
+  "isp": "Google LLC",
+  "domain": "google.com",
+  "net_speed": "T1",
+  "idd_code": "1",
+  "area_code": "650",
+  "weather_station_code": "USCA0746",
+  "weather_station_name": "Mountain View",
+  "mcc": "-",
+  "mnc": "-",
+  "mobile_brand": "-",
+  "elevation": 32,
+  "usage_type": "DCH",
+  "address_type": "Anycast",
+  "continent": {
+    "name": "North America",
+    "code": "NA",
+    "hemisphere": [
+      "north",
+      "west"
+    ],
+    "translation": {
+      "lang": "es",
+      "value": "Norteamérica"
+    }
+  },
+  "district": "Santa Clara County",
+  "country": {
+    "name": "United States of America",
+    "alpha3_code": "USA",
+    "numeric_code": 840,
+    "demonym": "Americans",
+    "flag": "https://cdn.ip2location.io/assets/img/flags/us.png",
+    "capital": "Washington, D.C.",
+    "total_area": 9826675,
+    "population": 331002651,
+    "currency": {
+      "code": "USD",
+      "name": "United States Dollar",
+      "symbol": "$"
+    },
+    "language": {
+      "code": "EN",
+      "name": "English"
+    },
+    "tld": "us",
+    "translation": {
+      "lang": "es",
+      "value": "Estados Unidos de América (los)"
+    }
+  },
+  "region": {
+    "name": "California",
+    "code": "US-CA",
+    "translation": {
+      "lang": "es",
+      "value": "California"
+    }
+  },
+  "city": {
+    "name": "Mountain View",
+    "translation": {
+      "lang": null,
+      "value": null
+    }
+  },
+  "time_zone_info": {
+    "olson": "America/Los_Angeles",
+    "current_time": "2023-09-03T18:21:13-07:00",
+    "gmt_offset": -25200,
+    "is_dst": true,
+    "sunrise": "06:41",
+    "sunset": "19:33"
+  },
+  "geotargeting": {
+    "metro": "807"
+  },
+  "ads_category": "IAB19-11",
+  "ads_category_name": "Data Centers",
+  "is_proxy": false,
+  "proxy": {
+    "last_seen": 3,
+    "proxy_type": "DCH",
+    "threat": "-",
+    "provider": "-",
+    "is_vpn": false,
+    "is_tor": false,
+    "is_data_center": true,
+    "is_public_proxy": false,
+    "is_web_proxy": false,
+    "is_web_crawler": false,
+    "is_residential_proxy": false,
+    "is_spammer": false,
+    "is_scanner": false,
+    "is_botnet": false
+  }
 }
 ```
 

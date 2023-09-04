@@ -151,6 +151,16 @@ try
 		Console.WriteLine("proxy => proxy_type: {0}", Proxy["proxy_type"]);
 		Console.WriteLine("proxy => threat: {0}", Proxy["threat"]);
 		Console.WriteLine("proxy => provider: {0}", Proxy["provider"]);
+		Console.WriteLine("proxy => is_vpn: {0}", Proxy["is_vpn"]);
+		Console.WriteLine("proxy => is_tor: {0}", Proxy["is_tor"]);
+		Console.WriteLine("proxy => is_data_center: {0}", Proxy["is_data_center"]);
+		Console.WriteLine("proxy => is_public_proxy: {0}", Proxy["is_public_proxy"]);
+		Console.WriteLine("proxy => is_web_proxy: {0}", Proxy["is_web_proxy"]);
+		Console.WriteLine("proxy => is_web_crawler: {0}", Proxy["is_web_crawler"]);
+		Console.WriteLine("proxy => is_residential_proxy: {0}", Proxy["is_residential_proxy"]);
+		Console.WriteLine("proxy => is_spammer: {0}", Proxy["is_spammer"]);
+		Console.WriteLine("proxy => is_scanner: {0}", Proxy["is_scanner"]);
+		Console.WriteLine("proxy => is_botnet: {0}", Proxy["is_botnet"]);
 	}
 }
 catch (Exception ex)

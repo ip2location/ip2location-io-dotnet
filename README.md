@@ -414,6 +414,8 @@ Response Parameter
 |proxy.is_spammer|boolean|Email and forum spammers.|
 |proxy.is_scanner|boolean|Network security scanners.|
 |proxy.is_botnet|boolean|Malware infected devices.|
+|proxy.is_consumer_privacy_network|boolean|Consumer Privacy Networks.|
+|proxy.is_enterprise_private_network|boolean|Enterprise Private Networks.|
 
 ```json
 {

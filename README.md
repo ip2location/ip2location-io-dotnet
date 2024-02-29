@@ -161,6 +161,8 @@ try
 		Console.WriteLine("proxy => is_spammer: {0}", Proxy["is_spammer"]);
 		Console.WriteLine("proxy => is_scanner: {0}", Proxy["is_scanner"]);
 		Console.WriteLine("proxy => is_botnet: {0}", Proxy["is_botnet"]);
+		Console.WriteLine("proxy => is_consumer_privacy_network: {0}", Proxy["is_consumer_privacy_network"]);
+		Console.WriteLine("proxy => is_enterprise_private_network: {0}", Proxy["is_enterprise_private_network"]);
 	}
 }
 catch (Exception ex)

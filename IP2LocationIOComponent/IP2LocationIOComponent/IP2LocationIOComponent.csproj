@@ -1,17 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net472;net48;net481;net5.0;net6.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net472;net48;net481;net5.0;net6.0;net7.0;net8.0</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>IP2Location.io .NET SDK</Title>
     <Description>IP2Location.io .NET SDK allows user to query for an enriched data set based on IP address and provides WHOIS lookup api that helps users to obtain domain information.</Description>
-    <Copyright>Copyright 2023 IP2Location.io</Copyright>
+    <Copyright>Copyright 2024 IP2Location.io</Copyright>
     <PackageProjectUrl>https://github.com/ip2location/ip2location-io-dotnet</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ip2location/ip2location-io-dotnet.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>geolocation;ip2location.io</PackageTags>
-    <PackageReleaseNotes>Update documentation</PackageReleaseNotes>
-    <Version>1.0.2</Version>
+    <PackageReleaseNotes>Updated for compatibility with .NET 8</PackageReleaseNotes>
+    <Version>1.0.3</Version>
     <Authors>IP2Location.io</Authors>
     <Company>IP2Location.io</Company>
     <Product>IP2Location.io .NET SDK</Product>

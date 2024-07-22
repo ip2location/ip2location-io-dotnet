@@ -130,7 +130,7 @@ try
 	if (MyObj["time_zone_info"] != null)
 	{
 		var TimeZone = MyObj["time_zone_info"];
-		Console.WriteLine("time_zone_info => olson: {0}", TimeZone["time_zone_info"]);
+		Console.WriteLine("time_zone_info => olson: {0}", TimeZone["olson"]);
 		Console.WriteLine("time_zone_info => current_time: {0}", TimeZone["current_time"]);
 		Console.WriteLine("time_zone_info => gmt_offset: {0}", TimeZone["gmt_offset"]);
 		Console.WriteLine("time_zone_info => is_dst: {0}", TimeZone["is_dst"]);

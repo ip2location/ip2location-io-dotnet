@@ -73,6 +73,7 @@ try
 	if (MyObj["ads_category"] != null) Console.WriteLine("ads_category: {0}", MyObj["ads_category"]);
 	if (MyObj["ads_category_name"] != null) Console.WriteLine("ads_category_name: {0}", MyObj["ads_category_name"]);
 	Console.WriteLine("is_proxy: {0}", MyObj["is_proxy"]);
+	if (MyObj["fraud_score"] != null) Console.WriteLine("fraud_score: {0}", MyObj["fraud_score"]);
 
 	if (MyObj["continent"] != null)
 	{

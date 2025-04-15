@@ -1,8 +1,10 @@
 IP2Location.io .NET SDK
 =======================
-This .NET library enables user to query for an enriched data set, such as country, region, city, latitude & longitude, ZIP code, time zone, ASN, ISP, domain, net speed, IDD code, area code, weather station data, MNC, MCC, mobile brand, elevation, usage type, address type, advertisement category and proxy data with an IP address. It supports both IPv4 and IPv6 address lookup.
+This .NET library enables user to query for an enriched data set, such as country, region, city, latitude & longitude, ZIP code, time zone, ASN, ISP, domain, net speed, IDD code, area code, weather station data, MNC, MCC, mobile brand, elevation, usage type, address type, advertisement category, fraud score and proxy data with an IP address. It supports both IPv4 and IPv6 address lookup.
 
 In addition, this module provides WHOIS lookup api that helps users to obtain domain information, WHOIS record, by using a domain name. The WHOIS API returns a comprehensive WHOIS data such as creation date, updated date, expiration date, domain age, the contact information of the registrant, mailing address, phone number, email address, nameservers the domain is using and much more.
+
+There is also a Hosted Domain API that allowing users to get the list of hosted domain names by IP address in real time. The REST API supports both IPv4 and IPv6 address lookup.
 
 This module requires API key to function. You may sign up for a free API key at https://www.ip2location.io/pricing.
 
@@ -73,6 +75,7 @@ try
 	if (MyObj["ads_category"] != null) Console.WriteLine("ads_category: {0}", MyObj["ads_category"]);
 	if (MyObj["ads_category_name"] != null) Console.WriteLine("ads_category_name: {0}", MyObj["ads_category_name"]);
 	Console.WriteLine("is_proxy: {0}", MyObj["is_proxy"]);
+	if (MyObj["fraud_score"] != null) Console.WriteLine("fraud_score: {0}", MyObj["fraud_score"]);
 
 	if (MyObj["continent"] != null)
 	{
@@ -341,6 +344,44 @@ Console.WriteLine(Whois.GetDomainExtension(str));
 ```
 
 
+### Lookup IP Address Hosted Domain Data
+```C#
+using Newtonsoft.Json;
+using IP2LocationIOComponent;
+
+// Configures IP2Location.io API key
+Configuration Config = new()
+{
+	ApiKey = "YOUR_API_KEY"
+};
+
+HostedDomain HD = new(Config);
+string IP = "8.8.8.8";
+
+// Lookup ip address hosted domain data
+var MyTask = HD.Lookup(IP); // Optional: 2nd param which is the page of the result, defaults to the first page
+
+try
+{
+	var MyObj = MyTask.Result;
+
+	// pretty-print JSON
+	Console.WriteLine(JsonConvert.SerializeObject(MyObj, Formatting.Indented));
+
+	Console.WriteLine("ip: {0}", MyObj["ip"]);
+	Console.WriteLine("total_domains: {0}", MyObj["total_domains"]);
+	Console.WriteLine("page: {0}", MyObj["page"]);
+	Console.WriteLine("per_page: {0}", MyObj["per_page"]);
+	Console.WriteLine("total_pages: {0}", MyObj["total_pages"]);
+	Console.WriteLine("domains: {0}", MyObj["domains"]);
+}
+catch (Exception ex)
+{
+	Console.WriteLine(ex.Message);
+}
+```
+
+
 Response Parameter
 ==================
 ### IP Geolocation Lookup function
@@ -402,6 +443,7 @@ Response Parameter
 |ads_category|string|The domain category code based on IAB Tech Lab Content Taxonomy.|
 |ads_category_name|string|The domain category based on IAB Tech Lab Content Taxonomy. These categories are comprised of Tier-1 and Tier-2 (if available) level categories widely used in services like advertising, Internet security and filtering appliances.|
 |is_proxy|boolean|Whether is a proxy or not.|
+|fraud_score|integer|Potential risk score (0 - 99) associated with IP address. A higher IP2Proxy Fraud Score indicates a greater likelihood of fraudulent activity and a lower reputation.|
 |proxy.last_seen|integer|Proxy last seen in days.|
 |proxy.proxy_type|string|Type of proxy.|
 |proxy.threat|string|Security threat reported.|
@@ -421,112 +463,115 @@ Response Parameter
 
 ```json
 {
-  "ip": "8.8.8.8",
-  "country_code": "US",
-  "country_name": "United States of America",
-  "region_name": "California",
-  "city_name": "Mountain View",
-  "latitude": 37.405992,
-  "longitude": -122.078515,
-  "zip_code": "94043",
-  "time_zone": "-07:00",
-  "asn": "15169",
-  "as": "Google LLC",
-  "isp": "Google LLC",
-  "domain": "google.com",
-  "net_speed": "T1",
-  "idd_code": "1",
-  "area_code": "650",
-  "weather_station_code": "USCA0746",
-  "weather_station_name": "Mountain View",
-  "mcc": "-",
-  "mnc": "-",
-  "mobile_brand": "-",
-  "elevation": 32,
-  "usage_type": "DCH",
-  "address_type": "Anycast",
-  "continent": {
-    "name": "North America",
-    "code": "NA",
-    "hemisphere": [
-      "north",
-      "west"
-    ],
-    "translation": {
-      "lang": "es",
-      "value": "Norteamérica"
-    }
-  },
-  "district": "Santa Clara County",
-  "country": {
-    "name": "United States of America",
-    "alpha3_code": "USA",
-    "numeric_code": 840,
-    "demonym": "Americans",
-    "flag": "https://cdn.ip2location.io/assets/img/flags/us.png",
-    "capital": "Washington, D.C.",
-    "total_area": 9826675,
-    "population": 331002651,
-    "currency": {
-      "code": "USD",
-      "name": "United States Dollar",
-      "symbol": "$"
+    "ip": "8.8.8.8",
+    "country_code": "US",
+    "country_name": "United States of America",
+    "region_name": "California",
+    "district": "Santa Clara County",
+    "city_name": "Mountain View",
+    "latitude": 37.38605,
+    "longitude": -122.08385,
+    "zip_code": "94035",
+    "time_zone": "-07:00",
+    "asn": "15169",
+    "as": "Google LLC",
+    "isp": "Google LLC",
+    "domain": "google.com",
+    "net_speed": "T1",
+    "idd_code": "1",
+    "area_code": "650",
+    "weather_station_code": "USCA0746",
+    "weather_station_name": "Mountain View",
+    "mcc": "-",
+    "mnc": "-",
+    "mobile_brand": "-",
+    "elevation": 32,
+    "usage_type": "DCH",
+    "address_type": "Anycast",
+    "ads_category": "IAB19-11",
+    "ads_category_name": "Data Centers",
+    "continent": {
+        "name": "North America",
+        "code": "NA",
+        "hemisphere": [
+            "north",
+            "west"
+        ],
+        "translation": {
+            "lang": "en",
+            "value": "North America"
+        }
     },
-    "language": {
-      "code": "EN",
-      "name": "English"
+    "country": {
+        "name": "United States of America",
+        "alpha3_code": "USA",
+        "numeric_code": 840,
+        "demonym": "Americans",
+        "flag": "https://cdn.ip2location.io/assets/img/flags/us.png",
+        "capital": "Washington, D.C.",
+        "total_area": 9826675,
+        "population": 339665118,
+        "currency": {
+            "code": "USD",
+            "name": "United States Dollar",
+            "symbol": "$"
+        },
+        "language": {
+            "code": "EN",
+            "name": "English"
+        },
+        "tld": "us",
+        "translation": {
+            "lang": "en",
+            "value": "United States of America"
+        }
     },
-    "tld": "us",
-    "translation": {
-      "lang": "es",
-      "value": "Estados Unidos de América (los)"
+    "region": {
+        "name": "California",
+        "code": "US-CA",
+        "translation": {
+            "lang": "en",
+            "value": "California"
+        }
+    },
+    "city": {
+        "name": "Mountain View",
+        "translation": {
+            "lang": "en",
+            "value": "Mountain View"
+        }
+    },
+    "time_zone_info": {
+        "olson": "America/Los_Angeles",
+        "current_time": "2025-04-14T23:13:23-07:00",
+        "gmt_offset": -25200,
+        "is_dst": true,
+        "sunrise": "06:31",
+        "sunset": "19:45"
+    },
+    "geotargeting": {
+        "metro": "807"
+    },
+    "is_proxy": false,
+    "fraud_score": 0,
+    "proxy": {
+        "last_seen": 14,
+        "proxy_type": "DCH",
+        "threat": "-",
+        "provider": "-",
+        "is_vpn": false,
+        "is_tor": false,
+        "is_data_center": true,
+        "is_public_proxy": false,
+        "is_web_proxy": false,
+        "is_web_crawler": false,
+        "is_residential_proxy": false,
+        "is_consumer_privacy_network": false,
+        "is_enterprise_private_network": false,
+        "is_spammer": false,
+        "is_scanner": false,
+        "is_botnet": false
     }
-  },
-  "region": {
-    "name": "California",
-    "code": "US-CA",
-    "translation": {
-      "lang": "es",
-      "value": "California"
-    }
-  },
-  "city": {
-    "name": "Mountain View",
-    "translation": {
-      "lang": null,
-      "value": null
-    }
-  },
-  "time_zone_info": {
-    "olson": "America/Los_Angeles",
-    "current_time": "2023-09-03T18:21:13-07:00",
-    "gmt_offset": -25200,
-    "is_dst": true,
-    "sunrise": "06:41",
-    "sunset": "19:33"
-  },
-  "geotargeting": {
-    "metro": "807"
-  },
-  "ads_category": "IAB19-11",
-  "ads_category_name": "Data Centers",
-  "is_proxy": false,
-  "proxy": {
-    "last_seen": 3,
-    "proxy_type": "DCH",
-    "threat": "-",
-    "provider": "-",
-    "is_vpn": false,
-    "is_tor": false,
-    "is_data_center": true,
-    "is_public_proxy": false,
-    "is_web_proxy": false,
-    "is_web_crawler": false,
-    "is_residential_proxy": false,
-    "is_spammer": false,
-    "is_scanner": false,
-    "is_botnet": false
-  }
 }
 ```
 
@@ -657,6 +702,128 @@ Response Parameter
 }
 ```
 
+
+### IP Hosted Domains Lookup function
+| Parameter | Type | Description |
+|---|---|---|
+|ip|string|IP address.|
+|total_domains|integer|Total number of hosted domains found.|
+|page|integer|Current lookup page.|
+|per_page|integer|Number of domains displayed in the page.|
+|total_pages|integer|Total pages of the hosted domains.|
+|domains|array|Hosted domains of the lookup IP Address.|
+
+```json
+{
+  "ip": "8.8.8.8",
+  "total_domains": 3858,
+  "page": 1,
+  "per_page": 100,
+  "total_pages": 39,
+  "domains": [
+    "000180.top",
+    "00100tet.xyz",
+    "001hash.vip",
+    "002hash.com",
+    "0050500.xyz",
+    "007515.com",
+    "023mm.net",
+    "023mt.net",
+    "023sn.net",
+    "031000.xyz",
+    "0515smw.com",
+    "058637.com",
+    "0798907.xyz",
+    "07capital.com",
+    "07osrs.com",
+    "07sh2wv.bar",
+    "0857.site",
+    "0931seo.com",
+    "0lzh.com",
+    "0x4f.com",
+    "0x57696c6c.com",
+    "0xb055.com",
+    "1-189tais.com",
+    "10askfcwebkvh.top",
+    "1102halfhowehbao1.com",
+    "1102hdfkeuwuhfubao2.com",
+    "1102hdukefjkf2.com",
+    "1102sdbkwuoubao3.com",
+    "11107hdkjhguk.com",
+    "111km.xyz",
+    "1130kfhuhw.com",
+    "11eqlhon.top",
+    "1206m.site",
+    "125ap.com",
+    "12la21wn31da40le6.com",
+    "12safhoie.top",
+    "12tivi.com",
+    "1333limited.com",
+    "1333yyh.com",
+    "135493.com",
+    "136668.xyz",
+    "13shkuwq.top",
+    "142937440.site",
+    "144888.xyz",
+    "14whoduhw.top",
+    "1562yjargm.xyz",
+    "15sdkwb.top",
+    "167853.xyz",
+    "168.one",
+    "168km.xyz",
+    "16uhwfuhe.cyou",
+    "176274.com",
+    "17diqwehfoi.cyou",
+    "17jule.com",
+    "18uhefoh.cyou",
+    "191095211.xyz",
+    "19931006.xyz",
+    "19g.vip",
+    "19wuji.cyou",
+    "1huofhoehfogakfwqqq.com",
+    "1ine1.com",
+    "1master-fitness.com",
+    "1rf3k.com",
+    "1s1s.app",
+    "1visualizer.app",
+    "200250.xyz",
+    "20070217.xyz",
+    "20088888.xyz",
+    "20230406.mov",
+    "205566.com",
+    "205artemisbet.com",
+    "20iiij.cyou",
+    "21107ahsfukhweo.com",
+    "21hodheoh.cyou",
+    "22bahman.space",
+    "22howhw.cyou",
+    "231q.top",
+    "234n.top",
+    "236j.top",
+    "23hw.cyou",
+    "24asfbkhb.cyou",
+    "24ihhcorp.com",
+    "25dgfu.cyou",
+    "26asfhku.cyou",
+    "277210.shop",
+    "27adfljn.cyou",
+    "28dshkf.cyou",
+    "29583.biz",
+    "29dakfb.cyou",
+    "2ashdowehofhweohfo.com",
+    "2c.com",
+    "2qdrap.com",
+    "2s1c.com",
+    "304065117.xyz",
+    "30fwhdfkb.cyou",
+    "3101r.space",
+    "31107abskjfbekb.com",
+    "315sx.com",
+    "31dfhkjsdb.cyou",
+    "325965.com"
+  ]
+}
+```
 
 LICENCE
 =====================

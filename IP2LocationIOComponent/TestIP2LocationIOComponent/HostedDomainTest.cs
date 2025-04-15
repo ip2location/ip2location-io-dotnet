@@ -3,7 +3,7 @@
 namespace TestIP2LocationIOComponent
 {
 	[TestClass]
-	public class DomainWhoisTest
+	public class HostedDomainTest
 	{
 		[TestMethod]
 		public void TestInvalidAPIKey()
@@ -13,8 +13,8 @@ namespace TestIP2LocationIOComponent
 				ApiKey = ""
 			};
 
-			DomainWhois Whois = new(config);
-			var MyTask = Whois.Lookup("example.c"); // async API call
+			HostedDomain HD = new(config);
+			var MyTask = HD.Lookup("8.8.8.8"); // async API call
 
 			try
 			{
@@ -22,7 +22,7 @@ namespace TestIP2LocationIOComponent
 			}
 			catch (Exception ex)
 			{
-				Assert.AreEqual("One or more errors occurred. (API key not found.)", ex.Message);
+				Assert.AreEqual("One or more errors occurred. (Missing parameter.)", ex.Message);
 			}
 		}
 	}

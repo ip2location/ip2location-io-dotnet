@@ -66,6 +66,16 @@ try
 	Console.WriteLine("is_proxy: {0}", MyObj["is_proxy"]);
 	if (MyObj["fraud_score"] != null) Console.WriteLine("fraud_score: {0}", MyObj["fraud_score"]);
 
+	if (MyObj["as_info"] != null)
+	{
+		var Asinfo = MyObj["as_info"];
+		Console.WriteLine("as_info => as_name: {0}", Asinfo["as_name"]);
+		Console.WriteLine("as_info => as_number: {0}", Asinfo["as_number"]);
+		Console.WriteLine("as_info => as_domain: {0}", Asinfo["as_domain"]);
+		Console.WriteLine("as_info => as_cidr: {0}", Asinfo["as_cidr"]);
+		Console.WriteLine("as_info => as_usage_type: {0}", Asinfo["as_usage_type"]);
+	}
+
 	if (MyObj["continent"] != null)
 	{
 		var Continent = MyObj["continent"];

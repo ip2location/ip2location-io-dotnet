@@ -1,4 +1,4 @@
-# IP2Location.io .NET API
+# IP2Location.io .NET SDK
 
 ## Configuration Class
 

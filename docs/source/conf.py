@@ -5,12 +5,12 @@
 
 # -- Project information
 
-project = 'IP2Location .NET'
+project = 'IP2Location.io .NET SDK'
 copyright = '2025, IP2Location'
 author = 'IP2Location'
 
-release = '1.0.0'
-version = '1.0.0'
+release = '1.1.2'
+version = '1.1.2'
 
 # -- General configuration
 
@@ -31,8 +31,8 @@ myst_enable_extensions = [
 
 # https://myst-parser.readthedocs.io/en/latest/configuration.html#setting-html-metadata
 myst_html_meta = {
-    "description": "IP2Location .NET Component that enables user to get the geolocation information from IP2Location BIN database.",
-    "keywords": "IP2Location, Geolocation, IP location, .NET",
+    "description": "IP2Location.io .NET SDK that enables user to get the geolocation information from IP2Location.io API.",
+    "keywords": "IP2Location.io, Geolocation, IP location, .NET",
     "google-site-verification": "DeW6mXDyMnMt4i61ZJBNuoADPimo5266DKob7Z7d6i4",
 }
 
@@ -54,11 +54,11 @@ html_theme_options = {
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = 'images/ipl-logo-square-1200.png'
+html_logo = 'images/android-chrome-512x512.png'
 
 # Favicon
-html_favicon = 'images/favicon.ico'
+html_favicon = 'images/favicon-32x32.png'
 
-html_title = "IP2Location .NET"
+html_title = "IP2Location.io .NET SDK"
 
-# html_baseurl = "https://ip2location-d.readthedocs.io/en/latest/"
+# html_baseurl = "https://ip2location-io-dotnet.readthedocs.io/en/latest/"

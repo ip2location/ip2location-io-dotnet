@@ -164,6 +164,7 @@ try
 		Console.WriteLine("proxy => is_public_proxy: {0}", Proxy["is_public_proxy"]);
 		Console.WriteLine("proxy => is_web_proxy: {0}", Proxy["is_web_proxy"]);
 		Console.WriteLine("proxy => is_web_crawler: {0}", Proxy["is_web_crawler"]);
+		Console.WriteLine("proxy => is_ai_crawler: {0}", Proxy["is_ai_crawler"]);
 		Console.WriteLine("proxy => is_residential_proxy: {0}", Proxy["is_residential_proxy"]);
 		Console.WriteLine("proxy => is_spammer: {0}", Proxy["is_spammer"]);
 		Console.WriteLine("proxy => is_scanner: {0}", Proxy["is_scanner"]);

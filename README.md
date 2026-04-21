@@ -108,6 +108,7 @@ Response Parameter
 |proxy.is_public_proxy|boolean|Public Proxies.|
 |proxy.is_web_proxy|boolean|Web Proxies.|
 |proxy.is_web_crawler|boolean|Search Engine Robots.|
+|proxy.is_ai_crawler|boolean|Specifically identifies IP addresses used by artificial intelligence companies to crawl the web for LLM training data or real-time retrieval (RAG).|
 |proxy.is_residential_proxy|boolean|Residential proxies.|
 |proxy.is_spammer|boolean|Email and forum spammers.|
 |proxy.is_scanner|boolean|Network security scanners.|
@@ -220,6 +221,7 @@ Response Parameter
         "is_public_proxy": false,
         "is_web_proxy": false,
         "is_web_crawler": false,
+        "is_ai_crawler": false,
         "is_residential_proxy": false,
         "is_consumer_privacy_network": false,
         "is_enterprise_private_network": false,

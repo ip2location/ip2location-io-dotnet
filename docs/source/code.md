@@ -113,9 +113,6 @@ Note: This parameter is only available for Plus and Security plan only.
 
 ## DomainWhois Class
 
-**_Please note that this class is no longer being maintained and has been migrated to a new repository. We recommend that you use the [IP2WHOIS Ruby SDK](https://github.com/ip2whois/ip2whois-ruby) going forward._**
-
-
 ```{py:function} Lookup(domain)
 Lookup domain WHOIS information.
 
